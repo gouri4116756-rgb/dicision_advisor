@@ -1,16 +1,34 @@
-# React + Vite
+# AI Decision Advisor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The React frontend sends a question to the Express API, which asks Groq for an
+answer and returns it to the browser:
 
-Currently, two official plugins are available:
+`Frontend -> POST /api/advisor/ask -> Backend -> Groq -> Answer`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Configure the backend
 
-## React Compiler
+Copy `decision_advisor/backend/.env.example` to
+`decision_advisor/backend/.env` and set `GROQ_API_KEY` to your Groq API key.
+The key stays on the backend; do not put it in a `VITE_` variable or commit the
+`.env` file. `GROQ_MODEL` can be set to another model available to your Groq
+account.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Run locally
 
-## Expanding the ESLint configuration
+From the repository root, start the backend in one terminal:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```powershell
+cd decision_advisor/backend
+npm install
+npm start
+```
+
+Then start the frontend from the repository root in another terminal:
+
+```powershell
+npm install
+npm run dev
+```
+
+The frontend defaults to `http://localhost:5000` for the backend. To use a
+different backend URL, set `VITE_API_BASE_URL` in a frontend `.env.local` file.

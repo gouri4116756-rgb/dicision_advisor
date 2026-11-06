@@ -18,4 +18,18 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
   },
+  {
+    files: ['decision_advisor/backend/**/*.js'],
+    languageOptions: {
+      globals: globals.node,
+      sourceType: 'commonjs',
+    },
+  },
+  {
+    files: ['decision_advisor/backend/services/advisorApi.js'],
+    languageOptions: {
+      globals: globals.browser,
+      sourceType: 'module',
+    },
+  },
 ])
