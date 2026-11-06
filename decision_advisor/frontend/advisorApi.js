@@ -11,7 +11,15 @@ export const askAdvisorApi = async (question, currentSituation) => {
     }
   );
 
-  return response.data;
+  const result = response.data;
+  if (!result || typeof result.answer !== "string" || !result.answer.trim()) {
+    throw new Error(result?.message || "The advisor returned an invalid response.");
+  }
+
+  return {
+    ...result,
+    memoriesUsed: Array.isArray(result.memoriesUsed) ? result.memoriesUsed : []
+  };
 };
 
 export const recordDecisionOutcomeApi = async (decision, outcome) => {

@@ -16,9 +16,17 @@ const sendServiceError = (res, error) => {
     });
   }
 
+  if (error.status === 404 && error.code === "model_not_found") {
+    return res.status(503).json({
+      success: false,
+      message: "The configured Groq model is unavailable. Set GROQ_MODEL to a chat model enabled for your Groq account."
+    });
+  }
+
   console.error("Advisor service request failed:", {
     code: error.code || "UPSTREAM_ERROR",
-    statusCode: error.statusCode
+    statusCode: error.statusCode || error.status,
+    message: error.message
   });
   return res.status(502).json({
     success: false,

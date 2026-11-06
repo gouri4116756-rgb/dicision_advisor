@@ -31,8 +31,8 @@ const getAdvice = async (question, currentSituation, memories) => {
       { role: "system", content: advisorPrompt },
       { role: "user", content: userMessage }
     ],
-    temperature: 0.6,
-    max_tokens: 1024
+    temperature: 0.4,
+    max_tokens: 700
   });
 
   const answer = completion.choices[0]?.message?.content?.trim();

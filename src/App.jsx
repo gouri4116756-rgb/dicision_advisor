@@ -40,6 +40,7 @@ export default function App() {
     } catch (requestError) {
       setError(
         requestError.response?.data?.message ||
+          requestError.message ||
           "Could not reach the advisor. Check that the backend is running and try again."
       );
     } finally {
