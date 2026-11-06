@@ -74,6 +74,11 @@ textarea:focus{
   outline-offset:2px;
 }
 
+.situation-input,
+.outcome-input{
+  height:100px;
+}
+
 .advisor-card button{
   background:#2563eb;
   color:white;
@@ -94,6 +99,11 @@ textarea:focus{
   color:#fca5a5;
 }
 
+.success-message{
+  margin:-10px 0 16px;
+  color:#86efac;
+}
+
 .response-card{
   margin-top:25px;
   background:#111827;
@@ -109,4 +119,49 @@ textarea:focus{
 .response-card p{
   line-height:1.7;
   white-space:pre-wrap;
+}
+
+.memory-card,
+.history-card{
+  margin-top:20px;
+  padding:20px;
+  border-radius:12px;
+  text-align:left;
+}
+
+.memory-card{
+  background:#172554;
+  border-left:4px solid #3b82f6;
+}
+
+.history-card{
+  background:#111827;
+}
+
+.memory-card h3,
+.history-card h3{
+  margin-bottom:10px;
+}
+
+.memory-card ul{
+  padding-left:20px;
+}
+
+.memory-card li{
+  margin-bottom:10px;
+  line-height:1.6;
+}
+
+.memory-type{
+  display:inline-block;
+  margin-right:8px;
+  color:#93c5fd;
+  font-size:.8rem;
+  text-transform:capitalize;
+}
+
+.history-card > p{
+  margin-bottom:20px;
+  color:#cbd5e1;
+  line-height:1.6;
 }

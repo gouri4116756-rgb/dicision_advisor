@@ -6,5 +6,8 @@ module.exports = {
   PORT: process.env.PORT || 5000,
   GROQ_API_KEY: process.env.GROQ_API_KEY,
   GROQ_MODEL: process.env.GROQ_MODEL || "llama-3.3-70b-versatile",
-  HINDSIGHT_API_KEY: process.env.HINDSIGHT_API_KEY
+  HINDSIGHT_API_KEY: process.env.HINDSIGHT_API_KEY,
+  HINDSIGHT_BASE_URL:
+    process.env.HINDSIGHT_BASE_URL || "https://api.hindsight.vectorize.io",
+  HINDSIGHT_BANK_ID: process.env.HINDSIGHT_BANK_ID || "decision-advisor"
 };
